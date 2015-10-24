@@ -32,6 +32,7 @@
 		0FD3DB3D1BD9A57700DD4D26 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DB391BD9A57700DD4D26 /* TFHppleElement.m */; };
 		0FD3DB3E1BD9A57700DD4D26 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DB3B1BD9A57700DD4D26 /* XPathQuery.m */; };
 		0FD3DB401BD9A6F100DD4D26 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD3DB3F1BD9A6F100DD4D26 /* libxml2.dylib */; };
+		0FF79E361BDA062F006A2274 /* SuperChargerStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF79E351BDA062F006A2274 /* SuperChargerStation.swift */; };
 		0FF940E91BD98F9B00210A28 /* GetStations.py in Resources */ = {isa = PBXBuildFile; fileRef = 0FF940E81BD98F9B00210A28 /* GetStations.py */; };
 		0FF940ED1BD99CD800210A28 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF940EC1BD99CD700210A28 /* libxml2.2.dylib */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		0FD3DB3A1BD9A57700DD4D26 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = hpple/Pod/Classes/XPathQuery.h; sourceTree = "<group>"; };
 		0FD3DB3B1BD9A57700DD4D26 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = hpple/Pod/Classes/XPathQuery.m; sourceTree = "<group>"; };
 		0FD3DB3F1BD9A6F100DD4D26 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		0FF79E351BDA062F006A2274 /* SuperChargerStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuperChargerStation.swift; path = ../SuperChargerStation.swift; sourceTree = "<group>"; };
 		0FF940E81BD98F9B00210A28 /* GetStations.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = GetStations.py; sourceTree = "<group>"; };
 		0FF940EC1BD99CD700210A28 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -160,6 +162,7 @@
 		0FB83B911B3DE10C000F77B5 /* SuperChargerRoute */ = {
 			isa = PBXGroup;
 			children = (
+				0FF79E351BDA062F006A2274 /* SuperChargerStation.swift */,
 				0FB83B941B3DE10C000F77B5 /* AppDelegate.swift */,
 				0FB83B991B3DE10C000F77B5 /* ViewController.swift */,
 				0FF940E81BD98F9B00210A28 /* GetStations.py */,
@@ -242,8 +245,9 @@
 		0FB83B871B3DE10C000F77B5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Lauren OKeefe";
 				TargetAttributes = {
 					0FB83B8E1B3DE10C000F77B5 = {
@@ -301,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FD3DB3D1BD9A57700DD4D26 /* TFHppleElement.m in Sources */,
+				0FF79E361BDA062F006A2274 /* SuperChargerStation.swift in Sources */,
 				0FD3DB3E1BD9A57700DD4D26 /* XPathQuery.m in Sources */,
 				0FD3DB3C1BD9A57700DD4D26 /* TFHpple.m in Sources */,
 				0FB83BB81B3E15AD000F77B5 /* LocationManager.swift in Sources */,
@@ -369,6 +374,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -455,6 +461,7 @@
 				);
 				INFOPLIST_FILE = SuperChargerRoute/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LaurenCOKeefe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SuperChargerRoute-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -477,6 +484,7 @@
 				);
 				INFOPLIST_FILE = SuperChargerRoute/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LaurenCOKeefe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SuperChargerRoute-Bridging-Header.h";
 			};
@@ -496,6 +504,7 @@
 				);
 				INFOPLIST_FILE = SuperChargerRouteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LaurenCOKeefe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SuperChargerRoute.app/SuperChargerRoute";
 			};
@@ -511,6 +520,7 @@
 				);
 				INFOPLIST_FILE = SuperChargerRouteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LaurenCOKeefe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SuperChargerRoute.app/SuperChargerRoute";
 			};

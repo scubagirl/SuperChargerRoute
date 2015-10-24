@@ -48,8 +48,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]!) {
-        println("locations = \(locations)")
+    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[CLLocation]) {
+        print("locations = \(locations)")
         //      NSThread.sleepForTimeInterval(0.001)
     }
     
@@ -64,7 +64,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 //    }
     func getCoord() ->CLLocationCoordinate2D {
         if(manager.location != nil){
-            return manager.location.coordinate
+            return manager.location!.coordinate
         }
         
         return CLLocationCoordinate2DMake(39.828328,-98.579416)

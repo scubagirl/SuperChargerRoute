@@ -15,10 +15,32 @@ class ViewController: UIViewController {
     
     var locationManager: LocationManager!
     var regionRad: CLLocationDistance!
+    var stations: [SuperChargerStation] = []
+    var names: [String] = []
     
     let testObject = PFObject(className: "TestObject")
     
     @IBOutlet weak var outputLabel: UILabel! = nil
+    @IBOutlet weak var mapView: MKMapView!
+    
+    //TODO: Hook This up!!!!!
+    @IBAction func mapTypeChanged(sender: AnyObject) {
+        switch (sender.selectedSegmentIndex){
+        
+            case 0:
+                mapView.mapType = MKMapType.Standard
+            
+            case 1:
+                mapView.mapType = MKMapType.Satellite
+            
+            case 2:
+                mapView.mapType = MKMapType.Hybrid
+            
+            default:
+                mapView.mapType = MKMapType.Standard
+        }
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +48,13 @@ class ViewController: UIViewController {
         locationManager.checkLocationServices()
         regionRad = locationManager.regionRadius
         centerMapOnLocation(locationManager.usCenter)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = locationManager.getCoord()
-        self.mapView.addAnnotation(annotation)
-        println("lat: \(annotation.coordinate.latitude)  long: \(annotation.coordinate.longitude)")
+        let currentLocation = MKPointAnnotation()
+        currentLocation.coordinate = locationManager.getCoord()
+        //TODO: Make current location a different color
+        self.mapView.addAnnotation(currentLocation)
         
-        getSuperChargerStations()
+        getSuperChargerData()
+        mapView.addAnnotations(stations)
         
         /****** Test Code ******/
 //        outputLabel.hidden = true
@@ -47,7 +70,7 @@ class ViewController: UIViewController {
     
     
 
-    @IBOutlet weak var mapView: MKMapView!
+
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
@@ -55,47 +78,72 @@ class ViewController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    func getSuperChargerStations(){
+    /* Get the URL for individual charger stations and return: [String] */
+    func getSuperChargerURLs()->[NSArray]{
+        var stationURLS = [NSArray]()
         let url = NSURL(string: "http://www.teslamotors.com/findus/list/superchargers/United+States")
-        let request = NSURLRequest(URL: url!)
-//        var contents = String(contentsOfURL: url!, encoding: NSUTF8StringEncoding, error: nil)
-        
         let data = NSData(contentsOfURL: url!)
-        var dataParser = TFHpple(HTMLData: data)
+        let dataParser = TFHpple(HTMLData: data)
         if let elements = dataParser.searchWithXPathQuery("//a[starts-with(@href,'/findus/location/supercharger/')]") {
             for element in elements {
+                let name = element.content
                 let rawElement = element.raw.description
-                let start = advance(rawElement.startIndex, 9)
-                let interumString = rawElement.substringFromIndex(start)
-                println(interumString)
+                let interumString = rawElement.substringFromIndex(rawElement.startIndex.advancedBy(9))
+                let finalString = interumString.substringToIndex(interumString.characters.indexOf("\"")!)
+                let nameSite = [name, finalString]
+                stationURLS.append(nameSite)
 
-                
             }
         }
-//        println(dataParser.data)
         
-//        println(contents)
-//        var pages: [String] = []
-
-        var indicies = [Int]()
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
-            var string = NSString(data: data, encoding: NSUTF8StringEncoding)
+        return stationURLS
+    }
+    
+    func getSuperChargerData(){
+        let stationArray = getSuperChargerURLs()
+        var coordinate = CLLocationCoordinate2D()
+        
+        for stationURL in stationArray {
+            let url = NSURL(string: "http://www.teslamotors.com\(stationURL[1])")
+            let data = NSData(contentsOfURL: url!)
+            let dataParser = TFHpple(HTMLData: data)
             
-            var searchRange = NSMakeRange(0,string!.length)
-            var foundRange: NSRange!
-            while (searchRange.location < string!.length) {
-                searchRange.length = string!.length-searchRange.location;
-                foundRange = searchRange
-                if (foundRange.location != NSNotFound) {
-                    indicies.append(foundRange.location)
-                    searchRange.location = foundRange.location+foundRange.length;
-                } else {
-                    break;
+            /* Set SuperCharger Name */
+            let name = stationURL[0] as! String
+            
+            
+            /* Find SuperCharger Coordinates */
+            if let elements = dataParser.searchWithXPathQuery("//a[starts-with(@href,'https://maps.google.com/maps?daddr=')]") {
+                for element in elements {
+                    let rawElement = element.raw.description
+                    let interumString = rawElement.substringFromIndex(rawElement.startIndex.advancedBy(44))
+                    let latLongString = interumString.substringToIndex(interumString.characters.indexOf("\"")!)
+                    let latLongArray = latLongString.componentsSeparatedByString(",")
+                    
+                    coordinate.latitude = Double(latLongArray[0])!
+                    coordinate.longitude = Double(latLongArray[1])!
+                }
+            }
+            else if let elements = dataParser.searchWithXPathQuery("//img[starts-with(@src,'https://maps.googleapis.com/maps/api/staticmap?scale=2&center=')]") {
+                for element in elements {
+                    let rawElement = element.raw.description
+                    let interumString = rawElement.substringFromIndex(rawElement.startIndex.advancedBy(62))
+                    let latLongString = interumString.substringToIndex(interumString.characters.indexOf("\"")!)
+                    let latLongArray = latLongString.componentsSeparatedByString(",")
+                    
+                    coordinate.latitude = Double(latLongArray[0])!
+                    coordinate.longitude = Double(latLongArray[1])!
                 }
             }
             
+            let station = SuperChargerStation(name: name, coordinate: coordinate)
+            print(station.name, station.coordinate.latitude, station.coordinate.longitude)
+            stations.append(station)
         }
-        print(indicies)
+    }
+    
+    func plotSuperChargerStations(){
+        
     }
 
 }
