@@ -8,14 +8,15 @@
 
 import UIKit
 import CoreData
-import Parse
-import Bolts
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var viewController: ViewController
+    let googleMapsApiKey = "AIzaSyAmWLsd21khsG3oTCWz_EkA669VedW70rg"
+    
     
     override init() {
         viewController = ViewController()
@@ -25,18 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         // Override point for customization after application launch.
-        
-        // [Optional] Power your app with Local Datastore. For more info, go to
-        // https://parse.com/docs/ios_guide#localdatastore/iOS
-        Parse.enableLocalDatastore()
-        
-        // Initialize Parse.
-        Parse.setApplicationId("bR5eb99rhCbP6uuIDU3LKWVKmbEjxc4Eh96WDxQ0",
-            clientKey: "i7iclocZMi2M34vcx0EhywmKstjY9jAx4M2pNEfq")
-        
-        // [Optional] Track statistics around application opens.
-        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-        
+        GMSServices.provideAPIKey(googleMapsApiKey)
         return true
     }
 
@@ -113,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if coordinator == nil {
             return nil
         }
-        var managedObjectContext = NSManagedObjectContext()
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()

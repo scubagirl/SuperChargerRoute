@@ -1,10 +1,14 @@
 //
-//  Use this file to import your target's public headers that you would like to expose to Swift.
+//  SuperChargerRoute-Bridging-Header.h
+//  SuperChargerRoute
+//
+//  Created by Lauren OKeefe on 2/9/16.
+//  Copyright © 2016 Lauren OKeefe. All rights reserved.
 //
 
-#ifndef SuperChargerRoute_SuperChargerRout_Bridging_Header_h
-#define SuperChargerRoute_SuperChargerRout_Bridging_Header_h
+#ifndef SuperChargerRoute_Bridging_Header_h
+#define SuperChargerRoute_Bridging_Header_h
 
-#import "TFHpple.h"
+#import "GoogleMaps/GoogleMaps.h"
 
-#endif
+#endif /* SuperChargerRoute_Bridging_Header_h */

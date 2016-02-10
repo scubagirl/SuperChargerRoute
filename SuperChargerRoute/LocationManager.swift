@@ -50,24 +50,24 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func locationManager(manager:CLLocationManager, didUpdateLocations locations:[CLLocation]) {
         print("locations = \(locations)")
-        //      NSThread.sleepForTimeInterval(0.001)
     }
     
     
-    /* Get coordinates - return invalid (lat = -180, long = -180) if location not available */
-//    func getCoord() ->CLLocation {
-//        if(manager.location != nil){
-//            return manager.location
-//        }
-//        
-//        return CLLocation(latitude: 39.828328, longitude: -98.579416)
-//    }
+    /* Get coordinates - return (39.828328,-98.579416) if location not available */
     func getCoord() ->CLLocationCoordinate2D {
         if(manager.location != nil){
             return manager.location!.coordinate
         }
         
         return CLLocationCoordinate2DMake(39.828328,-98.579416)
+    }
+    
+    func getLocation() ->CLLocation{
+        if(manager.location != nil){
+            return manager.location!
+        }
+
+        return CLLocation(latitude: usCenter.coordinate.latitude, longitude: usCenter.coordinate.longitude)
     }
     
 }

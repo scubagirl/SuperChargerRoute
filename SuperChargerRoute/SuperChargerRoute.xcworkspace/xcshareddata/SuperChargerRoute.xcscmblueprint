@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F7DCB61B99E42C8CD8DF2066835D187FE069D111",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F7DCB61B99E42C8CD8DF2066835D187FE069D111" : 0,
+    "C98F34640CDAF8C591AEB91EEF768A6198C4416E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9A028781-D102-40FE-A0B3-85CF821880E0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F7DCB61B99E42C8CD8DF2066835D187FE069D111" : "SuperChargerRoute\/",
+    "C98F34640CDAF8C591AEB91EEF768A6198C4416E" : "SuperChargerRoute\/hpple\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SuperChargerRoute",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SuperChargerRoute\/SuperChargerRoute.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/topfunky\/hpple.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C98F34640CDAF8C591AEB91EEF768A6198C4416E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/scubagirl\/SuperChargerRoute.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F7DCB61B99E42C8CD8DF2066835D187FE069D111"
+    }
+  ]
+}

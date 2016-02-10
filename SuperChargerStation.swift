@@ -12,15 +12,28 @@ import MapKit
 class SuperChargerStation: NSObject, MKAnnotation {
     var name: String?
     let coordinate: CLLocationCoordinate2D
+    var address: String?
+    var locality: String?
+    var stalls: String?
+    var types: String?
+
     
-    init(name: String, coordinate:CLLocationCoordinate2D){
-        self.name = name
-        self.coordinate = coordinate
-        
+    init(name: String, coordinate:CLLocationCoordinate2D, address: String, locality: String, stalls:String,
+        types: String
+        ){
+            self.name = name
+            self.coordinate = coordinate
+            self.address = address
+            self.locality = locality
+            self.stalls = stalls
+            self.types = types
+
+            
         super.init()
     }
     
     var title: String? {
         return name
     }
+    
 }

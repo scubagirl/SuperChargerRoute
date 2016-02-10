@@ -8,8 +8,7 @@
 
 import UIKit
 import MapKit
-import Parse
-//import TFHpple
+
 
 class ViewController: UIViewController {
     
@@ -18,7 +17,6 @@ class ViewController: UIViewController {
     var stations: [SuperChargerStation] = []
     var names: [String] = []
     
-    let testObject = PFObject(className: "TestObject")
     
     @IBOutlet weak var outputLabel: UILabel! = nil
     @IBOutlet weak var mapView: MKMapView!
@@ -44,32 +42,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         locationManager = LocationManager()
         locationManager.checkLocationServices()
         regionRad = locationManager.regionRadius
-        centerMapOnLocation(locationManager.usCenter)
+        centerMapOnLocation(locationManager.getLocation())
         let currentLocation = MKPointAnnotation()
         currentLocation.coordinate = locationManager.getCoord()
-        //TODO: Make current location a different color
         self.mapView.addAnnotation(currentLocation)
-        
         getSuperChargerData()
         mapView.addAnnotations(stations)
         
-        /****** Test Code ******/
-//        outputLabel.hidden = true
-//        outputLabel.font = UIFont.boldSystemFontOfSize(20.0)
-//         outputLabel.text = "lat:\(locationManager.getCoord().latitude), long:\(locationManager.getCoord().longitude)"
-//        
-//        testObject["foo"] = "bar"
-//        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-//            println("Object has been saved.")
-//        }
-        
     }
-    
-    
-
 
     
     func centerMapOnLocation(location: CLLocation) {
@@ -78,73 +62,33 @@ class ViewController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    /* Get the URL for individual charger stations and return: [String] */
-    func getSuperChargerURLs()->[NSArray]{
-        var stationURLS = [NSArray]()
-        let url = NSURL(string: "http://www.teslamotors.com/findus/list/superchargers/United+States")
-        let data = NSData(contentsOfURL: url!)
-        let dataParser = TFHpple(HTMLData: data)
-        if let elements = dataParser.searchWithXPathQuery("//a[starts-with(@href,'/findus/location/supercharger/')]") {
-            for element in elements {
-                let name = element.content
-                let rawElement = element.raw.description
-                let interumString = rawElement.substringFromIndex(rawElement.startIndex.advancedBy(9))
-                let finalString = interumString.substringToIndex(interumString.characters.indexOf("\"")!)
-                let nameSite = [name, finalString]
-                stationURLS.append(nameSite)
-
-            }
-        }
-        
-        return stationURLS
-    }
-    
     func getSuperChargerData(){
-        let stationArray = getSuperChargerURLs()
-        var coordinate = CLLocationCoordinate2D()
-        
-        for stationURL in stationArray {
-            let url = NSURL(string: "http://www.teslamotors.com\(stationURL[1])")
-            let data = NSData(contentsOfURL: url!)
-            let dataParser = TFHpple(HTMLData: data)
-            
-            /* Set SuperCharger Name */
-            let name = stationURL[0] as! String
-            
-            
-            /* Find SuperCharger Coordinates */
-            if let elements = dataParser.searchWithXPathQuery("//a[starts-with(@href,'https://maps.google.com/maps?daddr=')]") {
-                for element in elements {
-                    let rawElement = element.raw.description
-                    let interumString = rawElement.substringFromIndex(rawElement.startIndex.advancedBy(44))
-                    let latLongString = interumString.substringToIndex(interumString.characters.indexOf("\"")!)
-                    let latLongArray = latLongString.componentsSeparatedByString(",")
-                    
-                    coordinate.latitude = Double(latLongArray[0])!
-                    coordinate.longitude = Double(latLongArray[1])!
-                }
+        let data = getJSON("http://www.supercharger.laurencokeefe.com/super_charger_data.json")
+        let jsonObj = JSON(data: data)
+        if jsonObj != JSON.null {
+            let jsonStations = jsonObj["stations"]
+            for (key, subJson) in jsonStations {
+                let name = key
+                var coordinate = CLLocationCoordinate2D()
+                coordinate.latitude = subJson["lat"].doubleValue
+                coordinate.longitude = subJson["lng"].doubleValue
+                let address = subJson["address"].stringValue
+                let locality = subJson["locality"].stringValue
+                let stalls = subJson["stalls"].stringValue
+                let types = subJson["types"].stringValue
+                
+                let station = SuperChargerStation(name: name, coordinate: coordinate, address: address, locality: locality, stalls: stalls, types: types)
+                stations.append(station)
             }
-            else if let elements = dataParser.searchWithXPathQuery("//img[starts-with(@src,'https://maps.googleapis.com/maps/api/staticmap?scale=2&center=')]") {
-                for element in elements {
-                    let rawElement = element.raw.description
-                    let interumString = rawElement.substringFromIndex(rawElement.startIndex.advancedBy(62))
-                    let latLongString = interumString.substringToIndex(interumString.characters.indexOf("\"")!)
-                    let latLongArray = latLongString.componentsSeparatedByString(",")
-                    
-                    coordinate.latitude = Double(latLongArray[0])!
-                    coordinate.longitude = Double(latLongArray[1])!
-                }
-            }
-            
-            let station = SuperChargerStation(name: name, coordinate: coordinate)
-            print(station.name, station.coordinate.latitude, station.coordinate.longitude)
-            stations.append(station)
+        } else {
+            print("could not get json from file, make sure that file contains valid json.")
         }
     }
     
-    func plotSuperChargerStations(){
-        
+    func getJSON(urlToRequest: String) -> NSData{
+        return NSData(contentsOfURL: NSURL(string: urlToRequest)!)!
     }
+    
 
 }
 
