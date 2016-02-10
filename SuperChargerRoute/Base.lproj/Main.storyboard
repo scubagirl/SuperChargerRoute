@@ -59,11 +59,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FL0-Ta-NWz">
+                                <rect key="frame" x="0.0" y="64" width="560" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="T4m-XK-N7y"/>
+                                </constraints>
+                            </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUp-MG-cmY">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="20" y="64" width="560" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGC-bS-eIm">
-                                        <rect key="frame" x="0.0" y="8" width="600" height="208"/>
+                                        <rect key="frame" x="0.0" y="8" width="486" height="208"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o73-g9-gyE">
                                                 <rect key="frame" x="13" y="0.0" width="347" height="21"/>
@@ -178,30 +184,35 @@
                                         </constraints>
                                     </view>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hOr-lk-hHv">
-                                        <rect key="frame" x="0.0" y="224" width="600" height="273"/>
+                                        <rect key="frame" x="0.0" y="224" width="540" height="269"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="273" id="0o8-RW-GyE"/>
-                                            <constraint firstAttribute="width" constant="600" id="FcV-XP-ALp"/>
+                                            <constraint firstAttribute="height" constant="269" id="0o8-RW-GyE"/>
+                                            <constraint firstAttribute="width" constant="540" id="FcV-XP-ALp"/>
                                         </constraints>
                                     </mapView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="eGC-bS-eIm" secondAttribute="trailing" id="76R-au-eLj"/>
-                                    <constraint firstItem="hOr-lk-hHv" firstAttribute="trailing" secondItem="eGC-bS-eIm" secondAttribute="trailing" id="8cX-Hc-zw3"/>
-                                    <constraint firstItem="eGC-bS-eIm" firstAttribute="top" secondItem="cUp-MG-cmY" secondAttribute="top" constant="8" id="GYZ-jt-nGv"/>
-                                    <constraint firstAttribute="bottom" secondItem="hOr-lk-hHv" secondAttribute="bottom" constant="39" id="ovH-cq-dYY"/>
+                                    <constraint firstItem="eGC-bS-eIm" firstAttribute="top" secondItem="cUp-MG-cmY" secondAttribute="top" constant="8" id="6Qw-Bn-QRG"/>
+                                    <constraint firstAttribute="bottom" secondItem="hOr-lk-hHv" secondAttribute="bottom" constant="107" id="7bh-2O-oe8"/>
+                                    <constraint firstItem="hOr-lk-hHv" firstAttribute="trailing" secondItem="eGC-bS-eIm" secondAttribute="trailing" constant="54" id="8cX-Hc-zw3"/>
+                                    <constraint firstItem="hOr-lk-hHv" firstAttribute="leading" secondItem="cUp-MG-cmY" secondAttribute="leading" id="JbA-X0-m4Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="hOr-lk-hHv" secondAttribute="trailing" constant="20" id="KC3-Xi-gdC"/>
                                     <constraint firstItem="hOr-lk-hHv" firstAttribute="leading" secondItem="eGC-bS-eIm" secondAttribute="leading" id="rW3-bT-Y7h"/>
-                                    <constraint firstItem="eGC-bS-eIm" firstAttribute="leading" secondItem="cUp-MG-cmY" secondAttribute="leading" id="ssF-Xe-Yz6"/>
                                     <constraint firstItem="hOr-lk-hHv" firstAttribute="top" secondItem="eGC-bS-eIm" secondAttribute="bottom" constant="8" symbolic="YES" id="u5J-x3-5rZ"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cUp-MG-cmY" firstAttribute="top" secondItem="hST-0K-waq" secondAttribute="bottom" id="V7i-hM-Yw2"/>
-                            <constraint firstItem="cUp-MG-cmY" firstAttribute="leading" secondItem="TNX-Lv-Hnh" secondAttribute="leading" id="XNe-Wc-wV0"/>
-                            <constraint firstAttribute="bottom" secondItem="cUp-MG-cmY" secondAttribute="bottom" id="d6q-09-1R4"/>
-                            <constraint firstAttribute="trailing" secondItem="cUp-MG-cmY" secondAttribute="trailing" id="uwP-PL-XKC"/>
+                            <constraint firstItem="cUp-MG-cmY" firstAttribute="leading" secondItem="TNX-Lv-Hnh" secondAttribute="leadingMargin" id="4x3-GS-2vy"/>
+                            <constraint firstItem="eGC-bS-eIm" firstAttribute="width" secondItem="TNX-Lv-Hnh" secondAttribute="width" constant="-114" id="6NL-ba-Okh"/>
+                            <constraint firstItem="cUp-MG-cmY" firstAttribute="bottom" secondItem="FL0-Ta-NWz" secondAttribute="bottom" id="KWa-Ev-na4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FL0-Ta-NWz" secondAttribute="trailing" constant="20" id="QBf-JM-3uy"/>
+                            <constraint firstItem="cUp-MG-cmY" firstAttribute="top" secondItem="FL0-Ta-NWz" secondAttribute="top" id="QrG-Mz-zy0"/>
+                            <constraint firstItem="cUp-MG-cmY" firstAttribute="trailing" secondItem="TNX-Lv-Hnh" secondAttribute="trailingMargin" id="RXx-aS-5TB"/>
+                            <constraint firstItem="FL0-Ta-NWz" firstAttribute="leading" secondItem="TNX-Lv-Hnh" secondAttribute="leadingMargin" constant="-20" id="hsp-7B-NN4"/>
+                            <constraint firstItem="FL0-Ta-NWz" firstAttribute="top" secondItem="hST-0K-waq" secondAttribute="bottom" id="oYp-KF-HL3"/>
+                            <constraint firstItem="hOr-lk-hHv" firstAttribute="width" secondItem="TNX-Lv-Hnh" secondAttribute="width" constant="-60" id="wJL-Vz-PwS"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -212,6 +223,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="600" height="600"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Latitude" destination="swl-p1-w0w" id="deI-w1-F89"/>
@@ -264,6 +276,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2bF-BB-pTI">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Nc-jX-Zjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="icm-Wr-rnh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FHf-C7-b9V">
@@ -275,7 +288,6 @@
                         <segue destination="6R2-vm-9Mj" kind="relationship" relationship="rootViewController" id="FZR-1T-klz"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Nc-jX-Zjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3667" y="-827"/>
         </scene>
@@ -299,6 +311,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sTe-bo-qw6"/>
+        <segue reference="9PY-x0-hVk"/>
     </inferredMetricsTieBreakers>
 </document>
