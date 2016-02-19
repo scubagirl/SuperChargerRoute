@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0DA5811C768DCE000D5F39 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F0DA5801C768DCE000D5F39 /* Accelerate.framework */; };
 		0F7C6FDD1C488C2C00AEBA1A /* StreetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C6FDC1C488C2C00AEBA1A /* StreetView.swift */; };
 		0FB83B951B3DE10C000F77B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB83B941B3DE10C000F77B5 /* AppDelegate.swift */; };
 		0FB83B981B3DE10C000F77B5 /* SuperChargerRoute.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FB83B961B3DE10C000F77B5 /* SuperChargerRoute.xcdatamodeld */; };
@@ -16,13 +17,8 @@
 		0FB83BA21B3DE10C000F77B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FB83BA01B3DE10C000F77B5 /* LaunchScreen.xib */; };
 		0FB83BAE1B3DE10C000F77B5 /* SuperChargerRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB83BAD1B3DE10C000F77B5 /* SuperChargerRouteTests.swift */; };
 		0FB83BB81B3E15AD000F77B5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB83BB71B3E15AD000F77B5 /* LocationManager.swift */; };
-		0FB83BC01B3F0A39000F77B5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB83BBF1B3F0A39000F77B5 /* AudioToolbox.framework */; };
-		0FB83BC41B3F0A4D000F77B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB83BC31B3F0A4D000F77B5 /* CoreGraphics.framework */; };
 		0FB83BC61B3F0A56000F77B5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB83BC51B3F0A56000F77B5 /* CoreLocation.framework */; };
-		0FB83BC81B3F0A6B000F77B5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB83BC71B3F0A6B000F77B5 /* MobileCoreServices.framework */; };
 		0FB83BCA1B3F0A75000F77B5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB83BC91B3F0A75000F77B5 /* QuartzCore.framework */; };
-		0FB83BCC1B3F0A7C000F77B5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB83BCB1B3F0A7C000F77B5 /* Security.framework */; };
-		0FB83BCE1B3F0A8A000F77B5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB83BCD1B3F0A8A000F77B5 /* StoreKit.framework */; };
 		0FB83BD01B3F0A92000F77B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB83BCF1B3F0A92000F77B5 /* SystemConfiguration.framework */; };
 		0FD8DD311C481DA5006ADBDE /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD8DD301C481DA5006ADBDE /* InfoView.swift */; };
 		0FDD8F811C46FE9F006A5F59 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD8F801C46FE9F006A5F59 /* SwiftyJSON.swift */; };
@@ -43,8 +39,6 @@
 		0FFE40581C6A7612003BA16D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFE40571C6A7612003BA16D /* libz.tbd */; };
 		0FFE405A1C6A761B003BA16D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFE40591C6A761B003BA16D /* libc++.tbd */; };
 		0FFE405C1C6A7628003BA16D /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFE405B1C6A7628003BA16D /* libicucore.tbd */; };
-		0FFE405E1C6A767B003BA16D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFE405D1C6A767B003BA16D /* CoreBluetooth.framework */; };
-		0FFE40601C6A7687003BA16D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFE405F1C6A7687003BA16D /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F0DA5801C768DCE000D5F39 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		0F7C6FDC1C488C2C00AEBA1A /* StreetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreetView.swift; sourceTree = "<group>"; };
 		0FB83B8F1B3DE10C000F77B5 /* SuperChargerRoute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperChargerRoute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB83B931B3DE10C000F77B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,14 +66,8 @@
 		0FB83BAC1B3DE10C000F77B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FB83BAD1B3DE10C000F77B5 /* SuperChargerRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperChargerRouteTests.swift; sourceTree = "<group>"; };
 		0FB83BB71B3E15AD000F77B5 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		0FB83BBF1B3F0A39000F77B5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		0FB83BC11B3F0A41000F77B5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		0FB83BC31B3F0A4D000F77B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0FB83BC51B3F0A56000F77B5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		0FB83BC71B3F0A6B000F77B5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		0FB83BC91B3F0A75000F77B5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		0FB83BCB1B3F0A7C000F77B5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		0FB83BCD1B3F0A8A000F77B5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		0FB83BCF1B3F0A92000F77B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0FD3DB351BD9A57700DD4D26 /* SuperChargerRoute-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperChargerRoute-Bridging-Header.h"; sourceTree = "<group>"; };
 		0FD3DB3A1BD9A57700DD4D26 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = hpple/Pod/Classes/XPathQuery.h; sourceTree = "<group>"; };
@@ -102,8 +91,6 @@
 		0FFE40571C6A7612003BA16D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		0FFE40591C6A761B003BA16D /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		0FFE405B1C6A7628003BA16D /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
-		0FFE405D1C6A767B003BA16D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		0FFE405F1C6A7687003BA16D /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FFE40601C6A7687003BA16D /* Accelerate.framework in Frameworks */,
-				0FFE405E1C6A767B003BA16D /* CoreBluetooth.framework in Frameworks */,
+				0F0DA5811C768DCE000D5F39 /* Accelerate.framework in Frameworks */,
 				0FFE405C1C6A7628003BA16D /* libicucore.tbd in Frameworks */,
 				0FFE405A1C6A761B003BA16D /* libc++.tbd in Frameworks */,
 				0FFE40581C6A7612003BA16D /* libz.tbd in Frameworks */,
@@ -127,12 +113,7 @@
 				0FFE404C1C6A7571003BA16D /* AVFoundation.framework in Frameworks */,
 				0FEA5B9D1C47448A0008A3FE /* libxml2.tbd in Frameworks */,
 				0FEA5B9B1C4744740008A3FE /* libsqlite3.tbd in Frameworks */,
-				0FB83BCE1B3F0A8A000F77B5 /* StoreKit.framework in Frameworks */,
-				0FB83BCC1B3F0A7C000F77B5 /* Security.framework in Frameworks */,
-				0FB83BC81B3F0A6B000F77B5 /* MobileCoreServices.framework in Frameworks */,
-				0FB83BC41B3F0A4D000F77B5 /* CoreGraphics.framework in Frameworks */,
 				0FF7AE2F1C6AAC3400D790C9 /* GoogleMaps.framework in Frameworks */,
-				0FB83BC01B3F0A39000F77B5 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,19 +201,12 @@
 		DF13E9BCA8098988087103CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F0DA5801C768DCE000D5F39 /* Accelerate.framework */,
 				0FF7AE2D1C6AAC1600D790C9 /* GoogleMaps.framework */,
 				0FF7AE301C6AAE4000D790C9 /* GoogleMaps.bundle */,
 				0FB83BCF1B3F0A92000F77B5 /* SystemConfiguration.framework */,
-				0FB83BCD1B3F0A8A000F77B5 /* StoreKit.framework */,
-				0FB83BCB1B3F0A7C000F77B5 /* Security.framework */,
 				0FB83BC91B3F0A75000F77B5 /* QuartzCore.framework */,
-				0FB83BC71B3F0A6B000F77B5 /* MobileCoreServices.framework */,
 				0FB83BC51B3F0A56000F77B5 /* CoreLocation.framework */,
-				0FB83BC31B3F0A4D000F77B5 /* CoreGraphics.framework */,
-				0FB83BC11B3F0A41000F77B5 /* CFNetwork.framework */,
-				0FB83BBF1B3F0A39000F77B5 /* AudioToolbox.framework */,
-				0FFE405F1C6A7687003BA16D /* Accelerate.framework */,
-				0FFE405D1C6A767B003BA16D /* CoreBluetooth.framework */,
 				0FFE405B1C6A7628003BA16D /* libicucore.tbd */,
 				0FFE40591C6A761B003BA16D /* libc++.tbd */,
 				0FFE40571C6A7612003BA16D /* libz.tbd */,

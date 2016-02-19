@@ -16,6 +16,7 @@ class SuperChargerStation: NSObject, MKAnnotation {
     var locality: String?
     var stalls: String?
     var types: String?
+    var location: CLLocation
 
     
     init(name: String, coordinate:CLLocationCoordinate2D, address: String, locality: String, stalls:String,
@@ -27,6 +28,7 @@ class SuperChargerStation: NSObject, MKAnnotation {
             self.locality = locality
             self.stalls = stalls
             self.types = types
+            self.location = CLLocation(latitude: self.coordinate.latitude, longitude: self.coordinate.longitude)
 
             
         super.init()

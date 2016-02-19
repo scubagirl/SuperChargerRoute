@@ -16,11 +16,13 @@ class StreeView: UIViewController, GMSMapViewDelegate {
     var superCharger: SuperChargerStation!
     var locationManger: LocationManager!
     
-    @IBOutlet weak var navItem: UINavigationItem!
     
-    override func loadView() {
+    override func viewDidLoad() {
+        
         super.viewDidLoad()
-        navItem.title = superCharger.title
+        
+        self.title = superCharger.title
+        
         let panoView = GMSPanoramaView(frame: CGRectZero)
         panoView.backgroundColor = UIColor.clearColor()
         panoView.moveNearCoordinate(superCharger.coordinate)

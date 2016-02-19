@@ -35,8 +35,7 @@ extension ViewController: MKMapViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "mapToInfo"{
-            let destinationNavigationController = segue.destinationViewController as! UINavigationController
-            if let infoView: InfoView = destinationNavigationController.topViewController as? InfoView{
+            if let infoView: InfoView = segue.destinationViewController as? InfoView{
                 
                 let annotation = (sender as! MKAnnotationView).annotation!
                 if let supercharger = annotation as? SuperChargerStation{

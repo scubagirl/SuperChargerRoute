@@ -16,11 +16,17 @@ class ViewController: UIViewController {
     var regionRad: CLLocationDistance!
     var stations: [SuperChargerStation] = []
     var names: [String] = []
+    var segueBool = false
+    var segueStation: SuperChargerStation!
     
     
-    @IBOutlet weak var outputLabel: UILabel! = nil
     @IBOutlet weak var mapView: MKMapView!
+    @IBAction func currentLocationButton(sender: AnyObject) {
+        centerMapOnLocation(locationManager.getLocation())
+    }
     
+
+
     //TODO: Hook This up!!!!!
     @IBAction func mapTypeChanged(sender: AnyObject) {
         switch (sender.selectedSegmentIndex){
@@ -42,23 +48,34 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Super Charger Stations"
         mapView.delegate = self
         locationManager = LocationManager()
         locationManager.checkLocationServices()
         regionRad = locationManager.regionRadius
-        centerMapOnLocation(locationManager.getLocation())
+        
+        if segueBool == false{
+            centerMapOnLocation(locationManager.getLocation())
+        }
+        else{
+            centerMapOnLocation(segueStation.location)
+            segueBool = false
+        }
+      
         let currentLocation = MKPointAnnotation()
         currentLocation.coordinate = locationManager.getCoord()
+        currentLocation.title = "Current Location"
         self.mapView.addAnnotation(currentLocation)
         getSuperChargerData()
         mapView.addAnnotations(stations)
         
     }
+    
 
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-            regionRad * 2.0, regionRad * 2.0)
+            regionRad * 1.0, regionRad * 1.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
