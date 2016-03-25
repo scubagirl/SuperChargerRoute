@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
     var startLocation: String!
     var endLocation: String!
     var selectedAnnotaion: MKAnnotation!
-    var textField: UITextField!
+//    var textField: UITextField!
     var startSelected = false
     var endSelected = false
     var model = "Model S: 60"
@@ -58,8 +58,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         self.directionsView.end.addTarget(self, action: #selector(ViewController.endDidBeginEditing), forControlEvents: UIControlEvents.EditingDidBegin)
         
         self.directionsView.end.addTarget(self, action: #selector(ViewController.endDidEndEditing), forControlEvents: UIControlEvents.EditingDidEnd)
-        
-        
+
         loadDirectionView()
         
         self.title = "Super Charger Stations"
@@ -82,10 +81,9 @@ class ViewController: UIViewController, UITextFieldDelegate{
         self.mapView.addAnnotation(currentLocation)
         getSuperChargerData()
         mapView.addAnnotations(stations)
-        
-        
-        
     }
+    
+    
     func startDidBeginEditing(textField: UITextField){
         startSelected = true
         textFieldDidBeginEditing(textField)
@@ -127,6 +125,8 @@ class ViewController: UIViewController, UITextFieldDelegate{
     func loadDirectionView(){
         self.directionsView.hidden = true
         self.view.bringSubviewToFront(directionsView)
+        self.directionsView.start.inputView = UIView()
+        self.directionsView.end.inputView = UIView()
         self.directionsView.start.leftView = self.directionsView.startLabel
         self.directionsView.start.leftViewMode = UITextFieldViewMode.Always
         self.directionsView.end.leftView = self.directionsView.endLabel

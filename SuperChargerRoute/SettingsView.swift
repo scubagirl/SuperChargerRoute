@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 
-class SettingsView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class SettingsView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
     
     var delegate: SettingsViewDelegate?
     var mapView: MKMapView!
@@ -46,9 +46,15 @@ class SettingsView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsView.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsView.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil)
+        
         self.vehiclePicker.delegate = self
         self.vehiclePicker.dataSource = self
+        self.customRange.delegate = self
         self.customRange.text = "\(range)"
+        self.customRange.returnKeyType = .Done
+        self.customRange.keyboardType = .NumbersAndPunctuation
         
         if(model != nil && model != ""){
             let selectedRow = teslaModels.indexOf(model)
@@ -62,6 +68,19 @@ class SettingsView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         default: segmentedControl.selectedSegmentIndex = 0
         }
         
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        self.view.frame.origin.y = -150
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y = 0
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,7 +106,7 @@ class SettingsView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.delegate?.updateModel(teslaModels[row])
-        let localRange = self.modelRange[row][1] as! Int
+        let localRange = (self.modelRange[row] as! NSArray)[1] as! Int
         self.range = localRange
         self.customRange.text = "\(localRange)"
         
