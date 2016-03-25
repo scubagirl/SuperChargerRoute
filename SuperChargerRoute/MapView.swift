@@ -6,10 +6,10 @@
 //  Copyright © 2016 Lauren OKeefe. All rights reserved.
 //
 
-import Foundation
 import MapKit
 
 extension ViewController: MKMapViewDelegate {
+    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? SuperChargerStation {
             let identifier = "pin"
@@ -20,7 +20,6 @@ extension ViewController: MKMapViewDelegate {
                     dequeuedView.annotation = annotation
                     view = dequeuedView
             } else {
-                // 3
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
@@ -33,26 +32,31 @@ extension ViewController: MKMapViewDelegate {
         return nil
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "mapToInfo"{
-            if let infoView: InfoView = segue.destinationViewController as? InfoView{
-                
-                let annotation = (sender as! MKAnnotationView).annotation!
-                if let supercharger = annotation as? SuperChargerStation{
-                    infoView.superCharger = supercharger
-                    infoView.locationManager = locationManager
-                }
-                
-            }
-        }
-    }
     
     func mapView(mapView: MKMapView, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == annotationView.rightCalloutAccessoryView {
             self.performSegueWithIdentifier("mapToInfo", sender: annotationView)
         }
+    
 
     }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        let selectedAnnotation = view.annotation
+        for annotation in mapView.annotations {
+            if annotation.isEqual(selectedAnnotation){
+                if(startSelected == true){
+                    self.directionsView.start.text = annotation.title!
+                }
+                else if(endSelected == true){
+                    self.directionsView.end.text = annotation.title!
+                }
+            }
+        }
+    }
+    
+    
+
     
     
 

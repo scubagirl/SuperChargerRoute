@@ -6,7 +6,6 @@
 //  Copyright © 2016 Lauren OKeefe. All rights reserved.
 //
 
-import Foundation
 import MapKit
 import GoogleMaps
 
@@ -30,15 +29,5 @@ class StreeView: UIViewController, GMSMapViewDelegate {
 
         
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "streetToInfo"{
-            if let infoView:InfoView = segue.destinationViewController as? InfoView{
-                infoView.superCharger = superCharger
-                infoView.locationManager = locationManger
-                
-            }
-        }
-    }
-    
+        
 }

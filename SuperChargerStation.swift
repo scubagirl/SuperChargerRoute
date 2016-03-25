@@ -6,7 +6,6 @@
 //  Copyright © 2015 Lauren OKeefe. All rights reserved.
 //
 
-import Foundation
 import MapKit
 
 class SuperChargerStation: NSObject, MKAnnotation {

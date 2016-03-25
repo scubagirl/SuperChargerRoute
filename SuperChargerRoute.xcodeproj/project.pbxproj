@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F0DA5811C768DCE000D5F39 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F0DA5801C768DCE000D5F39 /* Accelerate.framework */; };
 		0F7C6FDD1C488C2C00AEBA1A /* StreetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C6FDC1C488C2C00AEBA1A /* StreetView.swift */; };
+		0F8C73A51CA2109300D98093 /* DirectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C73A41CA2109300D98093 /* DirectionsView.swift */; };
 		0FB83B951B3DE10C000F77B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB83B941B3DE10C000F77B5 /* AppDelegate.swift */; };
 		0FB83B981B3DE10C000F77B5 /* SuperChargerRoute.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FB83B961B3DE10C000F77B5 /* SuperChargerRoute.xcdatamodeld */; };
 		0FB83B9A1B3DE10C000F77B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB83B991B3DE10C000F77B5 /* ViewController.swift */; };
@@ -23,13 +24,13 @@
 		0FD8DD311C481DA5006ADBDE /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD8DD301C481DA5006ADBDE /* InfoView.swift */; };
 		0FDD8F811C46FE9F006A5F59 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD8F801C46FE9F006A5F59 /* SwiftyJSON.swift */; };
 		0FDD8F851C47363A006A5F59 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD8F841C47363A006A5F59 /* MapView.swift */; };
+		0FDDA1871CA45357009F9C00 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDDA1861CA45357009F9C00 /* SettingsView.swift */; };
 		0FEA5B9B1C4744740008A3FE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FEA5B9A1C4744740008A3FE /* libsqlite3.tbd */; };
 		0FEA5B9D1C47448A0008A3FE /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FEA5B9C1C47448A0008A3FE /* libxml2.tbd */; };
 		0FEB58B01C6A747200882C44 /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = 0FEB58AD1C6A747200882C44 /* CHANGELOG */; };
 		0FF79E361BDA062F006A2274 /* SuperChargerStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF79E351BDA062F006A2274 /* SuperChargerStation.swift */; };
 		0FF7AE2F1C6AAC3400D790C9 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF7AE2D1C6AAC1600D790C9 /* GoogleMaps.framework */; };
 		0FF7AE311C6AAE4000D790C9 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0FF7AE301C6AAE4000D790C9 /* GoogleMaps.bundle */; };
-		0FF940E91BD98F9B00210A28 /* GetStations.py in Resources */ = {isa = PBXBuildFile; fileRef = 0FF940E81BD98F9B00210A28 /* GetStations.py */; };
 		0FFE404C1C6A7571003BA16D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFE404B1C6A7571003BA16D /* AVFoundation.framework */; };
 		0FFE404E1C6A7579003BA16D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFE404D1C6A7579003BA16D /* CoreData.framework */; };
 		0FFE40501C6A7589003BA16D /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFE404F1C6A7589003BA16D /* CoreText.framework */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		0F0DA5801C768DCE000D5F39 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		0F7C6FDC1C488C2C00AEBA1A /* StreetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreetView.swift; sourceTree = "<group>"; };
+		0F8C73A41CA2109300D98093 /* DirectionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsView.swift; sourceTree = "<group>"; };
 		0FB83B8F1B3DE10C000F77B5 /* SuperChargerRoute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperChargerRoute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB83B931B3DE10C000F77B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FB83B941B3DE10C000F77B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,13 +77,13 @@
 		0FD8DD301C481DA5006ADBDE /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		0FDD8F801C46FE9F006A5F59 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		0FDD8F841C47363A006A5F59 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		0FDDA1861CA45357009F9C00 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0FEA5B9A1C4744740008A3FE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		0FEA5B9C1C47448A0008A3FE /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		0FEB58AD1C6A747200882C44 /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG; sourceTree = "<group>"; };
 		0FF79E351BDA062F006A2274 /* SuperChargerStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuperChargerStation.swift; path = ../SuperChargerStation.swift; sourceTree = "<group>"; };
 		0FF7AE2D1C6AAC1600D790C9 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		0FF7AE301C6AAE4000D790C9 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
-		0FF940E81BD98F9B00210A28 /* GetStations.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = GetStations.py; sourceTree = "<group>"; };
 		0FFE404B1C6A7571003BA16D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0FFE404D1C6A7579003BA16D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0FFE404F1C6A7589003BA16D /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -161,8 +163,9 @@
 				0FDD8F841C47363A006A5F59 /* MapView.swift */,
 				0FB83B991B3DE10C000F77B5 /* ViewController.swift */,
 				0FD8DD301C481DA5006ADBDE /* InfoView.swift */,
-				0FF940E81BD98F9B00210A28 /* GetStations.py */,
 				0FB83B9B1B3DE10C000F77B5 /* Main.storyboard */,
+				0FDDA1861CA45357009F9C00 /* SettingsView.swift */,
+				0F8C73A41CA2109300D98093 /* DirectionsView.swift */,
 				0F7C6FDC1C488C2C00AEBA1A /* StreetView.swift */,
 				0FB83BB71B3E15AD000F77B5 /* LocationManager.swift */,
 				0FB83B9E1B3DE10C000F77B5 /* Images.xcassets */,
@@ -305,7 +308,6 @@
 			files = (
 				0FB83B9D1B3DE10C000F77B5 /* Main.storyboard in Resources */,
 				0FB83BA21B3DE10C000F77B5 /* LaunchScreen.xib in Resources */,
-				0FF940E91BD98F9B00210A28 /* GetStations.py in Resources */,
 				0FF7AE311C6AAE4000D790C9 /* GoogleMaps.bundle in Resources */,
 				0FB83B9F1B3DE10C000F77B5 /* Images.xcassets in Resources */,
 				0FEB58B01C6A747200882C44 /* CHANGELOG in Resources */,
@@ -328,6 +330,7 @@
 			files = (
 				0FD8DD311C481DA5006ADBDE /* InfoView.swift in Sources */,
 				0FF79E361BDA062F006A2274 /* SuperChargerStation.swift in Sources */,
+				0F8C73A51CA2109300D98093 /* DirectionsView.swift in Sources */,
 				0F7C6FDD1C488C2C00AEBA1A /* StreetView.swift in Sources */,
 				0FB83BB81B3E15AD000F77B5 /* LocationManager.swift in Sources */,
 				0FB83B9A1B3DE10C000F77B5 /* ViewController.swift in Sources */,
@@ -335,6 +338,7 @@
 				0FDD8F851C47363A006A5F59 /* MapView.swift in Sources */,
 				0FB83B981B3DE10C000F77B5 /* SuperChargerRoute.xcdatamodeld in Sources */,
 				0FB83B951B3DE10C000F77B5 /* AppDelegate.swift in Sources */,
+				0FDDA1871CA45357009F9C00 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +422,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/include/libxml2,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -461,7 +465,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/include/libxml2,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -476,6 +480,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -505,6 +510,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -529,6 +535,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -549,6 +556,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

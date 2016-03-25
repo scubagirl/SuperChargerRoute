@@ -4,7 +4,6 @@
 //
 
 
-import Foundation
 import CoreLocation
 
 /* Class for determining location */
