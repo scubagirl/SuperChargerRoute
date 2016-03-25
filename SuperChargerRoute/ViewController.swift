@@ -16,13 +16,8 @@ class ViewController: UIViewController, UITextFieldDelegate{
     var locationManager: LocationManager!
     var regionRad: CLLocationDistance!
     var stations: [SuperChargerStation] = []
-    var names: [String] = []
     var segueBoolian = false
     var segueStation: SuperChargerStation!
-    var startLocation: String!
-    var endLocation: String!
-    var selectedAnnotaion: MKAnnotation!
-//    var textField: UITextField!
     var startSelected = false
     var endSelected = false
     var model = "Model S: 60"
@@ -47,18 +42,14 @@ class ViewController: UIViewController, UITextFieldDelegate{
         
     }
 
+    @IBAction func swapStartEnd(sender: UIButton) {
+        swap(&self.directionsView.start.text, &self.directionsView.end.text)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.directionsView.start.addTarget(self, action: #selector(ViewController.startDidBeginEditing), forControlEvents: UIControlEvents.EditingDidBegin)
-        
-        self.directionsView.start.addTarget(self, action: #selector(ViewController.startDidEndEditing), forControlEvents: UIControlEvents.EditingDidEnd)
-        
-        self.directionsView.end.addTarget(self, action: #selector(ViewController.endDidBeginEditing), forControlEvents: UIControlEvents.EditingDidBegin)
-        
-        self.directionsView.end.addTarget(self, action: #selector(ViewController.endDidEndEditing), forControlEvents: UIControlEvents.EditingDidEnd)
-
+        directionViewEditing()
         loadDirectionView()
         
         self.title = "Super Charger Stations"
@@ -81,6 +72,17 @@ class ViewController: UIViewController, UITextFieldDelegate{
         self.mapView.addAnnotation(currentLocation)
         getSuperChargerData()
         mapView.addAnnotations(stations)
+    }
+    
+    func directionViewEditing(){
+        
+        self.directionsView.start.addTarget(self, action: #selector(ViewController.startDidBeginEditing), forControlEvents: UIControlEvents.EditingDidBegin)
+        
+        self.directionsView.start.addTarget(self, action: #selector(ViewController.startDidEndEditing), forControlEvents: UIControlEvents.EditingDidEnd)
+        
+        self.directionsView.end.addTarget(self, action: #selector(ViewController.endDidBeginEditing), forControlEvents: UIControlEvents.EditingDidBegin)
+        
+        self.directionsView.end.addTarget(self, action: #selector(ViewController.endDidEndEditing), forControlEvents: UIControlEvents.EditingDidEnd)
     }
     
     
@@ -141,8 +143,6 @@ class ViewController: UIViewController, UITextFieldDelegate{
             regionRad * 1.0, regionRad * 1.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-    
-    
     
     func getSuperChargerData(){
         let data = getJSON("http://www.supercharger.laurencokeefe.com/super_charger_data.json")
